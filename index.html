@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ES6 Intro</title>
+  </head>
+  <body>
+    <script>
+
+    if(true){
+      let x = 10;
+      console.log(x);
+    } else{
+      let y = 50;
+      console.log(y);
+    }
+
+      /* Look into "name spacing" */
+      // Protecting my code from your code
+
+    // const SOME_VALUE = 10;
+
+    // if(usersFromDatabase > 3){
+    //   // "3" in this case is a "magic number"
+    //   // Numberical value in code that isn't clear what it is or what it's purpose is forEach
+    //   // open for interpretation
+    // }
+
+    // function catFunction(name){
+    //   console.log(name);
+    //   console.log('Meow, ' + name);
+    //   console.log('Meow,', name);
+    // };
+    //
+    // catFunction('Jason');
+    // catFunction();
+
+
+    function catFunction(name = 'Fred'){ // example of default paramater values
+      console.log('Meow, ' + name);
+    };
+
+    catFunction('Jason');
+    catFunction();
+
+    // JS is a "weakly typed language" in that it will force type conversion (e.g. TypeScript...)
+    // Offers flexibility in that it "fails gracefully" to the benefit of the users/user experience
+
+
+/* REST PARAMETERS */
+    // function doThings(first, ...something){
+    //   console.log(something);
+    // };
+    //
+    // doThings('Scott','Fred','Chris','Kris');
+
+    // Write code "defensively" to avoid having to worry about relying on another to provide info in the correct type and/or to avoid type conversion
+
+  /* SPREAD OPERATOR */
+  // let atticus = ['Atticus', 392811, 94000, 'Male', 'Developer'];
+  //
+  // function createEmployeeObject(name = 'Un-named', employeeNumber = '00000', salary = '1000', ...extra){
+  //   console.log(name, employeeNumber, salary);
+  // };
+  //
+  // createEmployeeObject(...atticus);
+
+  // Difference between 'spread' operator and a 'rest' operator is in the function signature
+  // spread operator will deconstruct an array
+  // rest operator will return answers in an array/create an array
+
+  /* ARROW FUNCTION */
+  // let normalFunciton = function(message){
+  //   console.log(message);
+  // };
+  //
+  // let arrowFunction = (message) => {
+  //   console.log(message);
+  // };
+  // 
+  // normalFunciton('Hello');
+  // arrowFunction('Meow');
+
+  // Significant difference between 'arrow function' and 'constructor function'
+
+  // function PersonES5(){
+  //   var that = this; // common work around...seems hackey
+  //   that.age = 35;
+  //   console.log(that.age);
+  //   setInterval(function growUp(){
+  //     that.age++;
+  //     console.log(that.age);
+  //   }, 1000);
+  // }
+  //
+  // var Scott = new PersonES5();
+
+  // In JS the context of a varaiable is determined where it is called from NOT where it is executed
+
+  // "Just because it works doesn't mean you should use it...understand what it does before using it!"
+
+
+// function PersonES6(){
+//   this.age = 35;
+//   setInterval(()=>{
+//     this.age++;
+//     console.log(this.age);
+//   }, 1000)
+// }
+//
+// var Scott = new PersonES6();
+
+// Arrow functions preserves the context of "this" from which it is assigned, NOT from which it was called
+// This is known as "lexical binding"
+// They bind the scope of where they are defined, not where they are called
+
+// const, let, arrow functions: all have to do with: scope, hoisting
+// ES6 is the answer to all the work-around/hackey things
+// ES6 is the 2015 update...backward compatability is essential due to the project pace
+// Just now getting aroudn to ES7
+
+// arrow functions can only be used in
+// function declaration: function PersonES6(){}
+// function expression: var functionExpression = function(){}
+
+// considered "bad form" to write named functions within Noed.js in which we use anonomyous callback functions...anonymous functions are the "common convention"
+
+/* OBJECT CONSTRUCTING */
+// let name = "Hotdog";
+// let price = "1.99";
+// let sides = ["Ketchup", "Relish", "Onions"];
+//
+// // let order = {name: name, price: price, sides: sides};
+// // console.log(order);
+//
+// let order = {name, price, sides};
+// console.log(order);
+
+// creating objects just using the key name as opposed to the key:value pair
+
+/* OBJ DESTRUCTING */
+// let someArray = ['Hotdog', 1.99, ['Ketchup', 'Relish', 'Onions']];
+// let [name, price, sides] = someArray;
+//
+// console.log(someArray);
+
+// /*  */
+// function Dog(name){
+//   return{
+//     name,
+//     bark(){ // ES6 allows to drop the ': function' in defining a method
+//       alert('Bark');
+//     }
+//   }
+// }
+//
+// var Baxter = new Dog('Baxter');
+// console.log(Baxter);
+// Baxter.bark();
+
+/* FOR OF LOOP */
+// let people = ['Scott', 'dEv', 'Chris'];
+// for (let person of people){
+//   console.log(person);
+// }
+
+/* CLASS SYNTAX */
+
+class Dog{
+  constructor(name){
+    this.name = name;
+  }
+}
+
+
+
+
+    </script>
+  </body>
+</html>
